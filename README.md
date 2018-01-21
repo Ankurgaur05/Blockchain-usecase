@@ -1,5 +1,6 @@
 # BGC-beta
-Live implementation available at 18.218.79.90/welcome
+Live implementation available at http://18.218.79.90/welcome
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3.
 
 ## Development server
