@@ -1,5 +1,5 @@
 //
-import { Component, OnInit, OnChanges, OnDestroy, AfterViewChecked, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Employee } from '../model/emp.model';
 //import { CommonService } from '../../common/sharedservices/common.services';
 import { Observable } from 'rxjs/Rx';
