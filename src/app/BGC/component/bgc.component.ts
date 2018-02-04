@@ -20,7 +20,7 @@ export class BgcComponent implements OnInit {
     assetId: any;
     historyVisibility: any;
 
-    
+
 
 
     constructor(
@@ -35,28 +35,28 @@ export class BgcComponent implements OnInit {
         return this._cs.fetchAsset(this.assetId)
             .subscribe(
             results => {
-                
+
                 this.assetDetails = results;
                 //console.log(this.assetDetails);
-               // for (let item of this.assetDetails)
-                 {
-                    
-                                         this._cs.fetchEmployer(((this.assetDetails.employer).split("#", 2))[1]).
-                                            subscribe(
-                                            result => {
-                                              //  console.log(result.details.companyName);
-                                                this.assetDetails.employer=result.details.companyName;
-                                            }
-                                           
-                                            )
-                                        
-                                    }
-            
-                             }
+                // for (let item of this.assetDetails)
+                {
+
+                    this._cs.fetchEmployer(((this.assetDetails.employer).split("#", 2))[1]).
+                        subscribe(
+                        result => {
+                            //  console.log(result.details.companyName);
+                            this.assetDetails.employer = result.details.companyName;
+                        }
+
+                        )
+
+                }
+
+            }
 
             )
     }
-  
+
     searchHistory() {
         //alert("Hello");
         this.historyVisibility = true;
@@ -67,15 +67,15 @@ export class BgcComponent implements OnInit {
 
                 for (let item of this.assetHistory) {
 
-                     this._cs.fetchEmployer(((item.newEmployer).split("#", 2))[1]).
+                    this._cs.fetchEmployer(((item.newEmployer).split("#", 2))[1]).
                         subscribe(
                         result => {
-                          //  console.log(result.details.companyName);
-                            item.newEmployer=result.details.companyName;
+                            //  console.log(result.details.companyName);
+                            item.newEmployer = result.details.companyName;
                         }
-                       
+
                         )
-                    
+
                 }
 
             }

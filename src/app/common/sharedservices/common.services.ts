@@ -17,22 +17,18 @@ export class CommonService {
     private empTransactUrl = "http://18.218.79.90:3000/api/org.bgc.base.TransferEmployee";
 
 
-    constructor(private _http: Http
-        //private __http: HttpClient
-    ) {
+    constructor(private _http: Http) {
 
     }
 
 
     fetchAsset(assetId) {
-        ////console.log("@@@@@@@"+this.assetUrl+assetId);
         return this._http.get(this.assetUrl + assetId)
             .map((response: Response) => response.json())
             .catch(this.handleError);
 
     }
     fetchEmployer(assetId) {
-        ////console.log("@@@8888@@@@"+this.fetchEmployerUrl+assetId);
         return this._http.get(this.fetchEmployerUrl + assetId)
             .map((response: Response) => response.json()
             ).catch(this.handleError);
@@ -87,11 +83,11 @@ export class CommonService {
         if (emp.status == "RELEASED") {
             emp.employer = "0000";
         }
-        if(emp.reason==null ||emp.reason==""){
-            emp.reason="NA";
+        if (emp.reason == null || emp.reason == "") {
+            emp.reason = "NA";
         }
-        if(emp.comments==null ||emp.comments==""){
-            emp.comments="NA";
+        if (emp.comments == null || emp.comments == "") {
+            emp.comments = "NA";
         }
         const options = new RequestOptions({
 
@@ -114,8 +110,8 @@ export class CommonService {
 
     /*
 
-    fetchLoanData() {
-        return this._http.get(this.loanUrl)
+    fetchAssetData() {
+        return this._http.get(this.assetUrl)
             .map((response: Response) => response.json())
             .catch(this.handleError);
     }

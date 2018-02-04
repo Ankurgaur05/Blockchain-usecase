@@ -1,4 +1,4 @@
-import { NgModule }             from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from '../component/dashboard.component';
 import { BgcComponent } from '../component/bgc.component';
@@ -14,13 +14,13 @@ const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
   { path: 'searchEmp', component: DashboardComponent },
   { path: 'searchAsset/:assetId', component: BgcComponent },
-  { path: 'searchHistory/:assetId', component: TransactionHistoryComponent},
-  { path: 'addEmp', component: AddEmpComponent},
-  { path: 'relEmp/:assetId/:employer/:status', component: ReleaseEmpComponent}
+  { path: 'searchHistory/:assetId', component: TransactionHistoryComponent },
+  { path: 'addEmp', component: AddEmpComponent },
+  { path: 'relEmp/:assetId/:employer/:status', component: ReleaseEmpComponent }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
