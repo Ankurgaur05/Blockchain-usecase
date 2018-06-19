@@ -9,14 +9,16 @@ import { DashboardComponent } from './BGC/component/dashboard.component';
 import { AppRoutingModule } from './BGC/route/route.module';
 import { TransactionHistoryComponent } from './BGC/component/txnhistory.component';
 import { WelcomeComponent } from './BGC/component/welcome.component';
-import { AddEmpComponent } from './BGC/component/addEmp.component';
 import { HttpClient } from '@angular/common/http';
 import { ReleaseEmpComponent } from './BGC/component/releaseEmp.component';
+import { WebsocketService } from './common/sharedservices/websocket.services';
+import { ChatService } from './common/sharedservices/connect.ws.service';
+import { AddParticipantComponent } from './BGC/component/regParticipant.component';
 
 @NgModule({
   imports:      [ BrowserModule,FormsModule,HttpModule,AppRoutingModule],
-  declarations: [ ReleaseEmpComponent,AppComponent,AddEmpComponent,BgcComponent,DashboardComponent,TransactionHistoryComponent,WelcomeComponent],
+  declarations: [ ReleaseEmpComponent,AppComponent,AddParticipantComponent,BgcComponent,DashboardComponent,TransactionHistoryComponent,WelcomeComponent],
   bootstrap:    [ AppComponent ],
-  providers:[CommonService]
+  providers:[CommonService,WebsocketService, ChatService ]
 })
 export class AppModule { }

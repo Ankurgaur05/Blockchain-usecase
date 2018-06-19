@@ -1,7 +1,7 @@
 //domain model
 export class Asset {
     //declaration
-    constructor(public assetId: String, public assetName: String, public assetCompany: String) {
+    constructor(public applId: String,public por: String, public customer: String, public status: String, public loanAmnt: String,public currency: String) {
 
 
     }

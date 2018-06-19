@@ -4,18 +4,18 @@ import { DashboardComponent } from '../component/dashboard.component';
 import { BgcComponent } from '../component/bgc.component';
 import { TransactionHistoryComponent } from '../component/txnhistory.component';
 import { WelcomeComponent } from '../component/welcome.component';
-import { AddEmpComponent } from '../component/addEmp.component';
 import { ReleaseEmpComponent } from '../component/releaseEmp.component';
+import { AddParticipantComponent } from '../component/regParticipant.component';
 
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: 'welcome', component: WelcomeComponent },
-  { path: 'searchEmp', component: DashboardComponent },
-  { path: 'searchAsset/:assetId', component: BgcComponent },
+  { path: 'bankview', component: DashboardComponent },
+  { path: 'centralbankView', component: BgcComponent },
   { path: 'searchHistory/:assetId', component: TransactionHistoryComponent },
-  { path: 'addEmp', component: AddEmpComponent },
+  { path: 'addParticipant', component: AddParticipantComponent },
   { path: 'relEmp/:assetId/:employer/:status', component: ReleaseEmpComponent }
 ];
 

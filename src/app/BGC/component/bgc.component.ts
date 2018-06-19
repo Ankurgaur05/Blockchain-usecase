@@ -7,6 +7,7 @@ import { SlicePipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Location, DatePipe } from '@angular/common';
 import { AssetHistory } from '../model/assetHistory.model';
+import { ChatService } from '../../common/sharedservices/connect.ws.service';
 
 @Component({
     selector: 'bgc-component',
@@ -14,73 +15,58 @@ import { AssetHistory } from '../model/assetHistory.model';
 })
 
 export class BgcComponent implements OnInit {
-    employerDtls: Observable<any>;
-    assetHistory: any[];
-    assetDetails: any;
-    assetId: any;
-    historyVisibility: any;
+    
+    //assetDetail =new Asset("", "", "", "", "");
+    assetDetails: any [];
+  // loan:any;
+    
+   // emp = new Employee("", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+   
+    constructor( private _cs: CommonService,private chatService: ChatService) {
+        chatService.messages.subscribe(msg => {			
+          console.log(msg);
+          this.ngOnInit();
+          
+        });
+      }
+    
+    ngOnInit(){
+ 
 
+        return this._cs.GetAllAPP()
+        .subscribe(
+        results => {
 
+            this.assetDetails = results;
+            console.log(this.assetDetails);
+            // for (let item of this.assetDetails)
+            {
 
+               /* this._cs.fetchEmployer(((this.assetDetails.employer).split("#", 2))[1]).
+                    subscribe(
+                    result => {
+                        //  console.log(result.details.companyName);
+                        this.assetDetails.employer = result.details.companyName;
+                    }
 
-    constructor(
-        private route: ActivatedRoute,
-        private _cs: CommonService,
-        private location: Location
-    ) { }
-
-
-    ngOnInit() {
-        this.assetId = this.route.snapshot.paramMap.get('assetId');
-        return this._cs.fetchAsset(this.assetId)
-            .subscribe(
-            results => {
-
-                this.assetDetails = results;
-                //console.log(this.assetDetails);
-                // for (let item of this.assetDetails)
-                {
-
-                    this._cs.fetchEmployer(((this.assetDetails.employer).split("#", 2))[1]).
-                        subscribe(
-                        result => {
-                            //  console.log(result.details.companyName);
-                            this.assetDetails.employer = result.details.companyName;
-                        }
-
-                        )
-
-                }
-
+                    )*/
             }
 
-            )
+        }
+
+        )
+    } 
+    submitAppl(loan){
+
+        return this._cs.submitAppl(loan)
+        .subscribe(
+        results => {
+
+           // this.assetDetails = results;
+            console.log(this.assetDetails);
+            this.ngOnInit();
+        })
     }
 
-    searchHistory() {
-        //alert("Hello");
-        this.historyVisibility = true;
-        return this._cs.fetchAssetHistory(this.assetId)
-            .subscribe(
-            results => {
-                this.assetHistory = results;
-
-                for (let item of this.assetHistory) {
-
-                    this._cs.fetchEmployer(((item.newEmployer).split("#", 2))[1]).
-                        subscribe(
-                        result => {
-                            //  console.log(result.details.companyName);
-                            item.newEmployer = result.details.companyName;
-                        }
-
-                        )
-
-                }
-
-            }
-
-            )
-    }
 
 }

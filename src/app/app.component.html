@@ -1,68 +1,150 @@
-<div class="row">
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
 
-</div>
-<div class="row">
-  <nav>
-    <div class="nav-wrapper">
-      <a href="/welcome" class="brand-logo"> <img  style="width: 111px;" src="../assets/logo.png"></a>
-     
-      
-      
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li>
-          <a routerLink="/welcome">Home</a>
-        </li>
-        <li>
-            <a routerLink="/searchEmp">Search employee</a>
-        </li>
-        <li>
-          <a routerLink="/addEmp">Add employee</a>
-        </li>
-        <li>
-          <a routerLink="/">Admin tools</a>
-        </li>
-        <li>
-            <a  href="https://www.linkedin.com/in/vishal3152/" target="_blank">About me</a>
-          </li>
-      </ul>
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>P2P</title>
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+  <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+  <meta name="msapplication-TileColor" content="#3372DF">
+
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+  <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-pink.min.css">
+  <link rel="stylesheet" href="/src/assets/styles.css">
+  <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+
+  </style>
+</head>
+
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+  <!-- Uses a header that scrolls with the text, rather than staying
+  locked at the top -->
+  <div class="mdl-layout mdl-js-layout">
+    <header class="mdl-layout__header mdl-layout__header--scroll">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">P2PLending</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation -->
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" routerLink="/addParticipant">Register customer</a>
+          <a class="mdl-navigation__link" href="">Search Contract</a>
+          <a class="mdl-navigation__link" href="">Central bank view</a>
+          <a class="mdl-navigation__link" href="">Wallet provider view</a>
+        </nav>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Title</span>
+      <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" routerLink="/addParticipant">Register customer</a>
+          <a class="mdl-navigation__link" href="">Search Contract</a>
+          <a class="mdl-navigation__link" href="">Central bank view</a>
+          <a class="mdl-navigation__link" href="">Wallet provider view</a>
+        
+      </nav>
     </div>
-  </nav>
-</div>
-
-<div class="row">
-       
-  <div class="col s12">
-    <div class="card blue lighten-3 panel">
-      <div class="card-content ">
-        <span class="card-title"></span>
+    <main class="mdl-layout__content">
+      <div class="page-content">
         <router-outlet></router-outlet>
       </div>
+      <footer class="mdl-mega-footer">
+       <!-- <div class="mdl-mega-footer--middle-section">
+       
 
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <footer class="page-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <p class="grey-text text-lighten-4">Built on Angular for the love of block chain.<i class="material-icons">sentiment_very_satisfied</i><br> 
-          Wish to collaborate or learn more? Do reach out to me on <a class="grey-text text-lighten-4" href="https://www.linkedin.com/in/vishal3152/" target="_blank"><u>LinkedIn</u></a></p>
+          <div class="mdl-mega-footer--drop-down-section">
+            <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+            <h1 class="mdl-mega-footer--heading">Technology</h1>
+            <ul class="mdl-mega-footer--link-list">
+              <li>
+                <a href="#">How it works</a>
+              </li>
+             
+            </ul>
+          </div>
+          <div class="mdl-mega-footer--drop-down-section">
+            <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+            <h1 class="mdl-mega-footer--heading">FAQ</h1>
+            <ul class="mdl-mega-footer--link-list">
+              <li>
+                <a href="#">Questions</a>
+              </li>
+              <li>
+                <a href="#">Answers</a>
+              </li>
+              <li>
+                <a href="#">Contact us</a>
+              </li>
+            </ul>
+          </div>
+        </div>-->
+        <div class="mdl-mega-footer--bottom-section">
+          <div class="mdl-logo">
+            More Information
+          </div>
+          <ul class="mdl-mega-footer--link-list">
+            <li>
+              <a href="#">Help</a>
+            </li>
+            <li>
+              <a href="#">Privacy and Terms</a>
+            </li>
+          </ul>
         </div>
-        <div class="col l4 s12 right-align">
-      <br><br>
-             <a class="grey-text text-lighten-4 " href="http://18.218.79.90:5984/_all_dbs" target="_blank"><u>CouchDB state</u></a>
-            <br> <a class="grey-text text-lighten-4 " >This app is hosted on a AWS free Tier instance.</a>
-           </div>
-        
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-        © 2018 Vishal 
-        <a class="grey-text text-lighten-4 right" href="https://hyperledger-fabric.readthedocs.io/en/release/" target="_blank">Built with <u>Hyperledger Fabric</u> </a>
-      </div>
-    </div>
-  </footer>
-</div>
+      </footer>
+
+    </main>
+  </div>
+
+
+</body>
+
+</html>
