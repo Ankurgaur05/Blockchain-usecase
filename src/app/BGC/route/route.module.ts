@@ -6,6 +6,7 @@ import { TransactionHistoryComponent } from '../component/txnhistory.component';
 import { WelcomeComponent } from '../component/welcome.component';
 import { ReleaseEmpComponent } from '../component/releaseEmp.component';
 import { AddParticipantComponent } from '../component/regParticipant.component';
+import { RegisterAssetComponent } from '../component/regAsset.component';
 
 
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'centralbankView', component: BgcComponent },
   { path: 'searchHistory/:assetId', component: TransactionHistoryComponent },
   { path: 'addParticipant', component: AddParticipantComponent },
+  { path: 'regAsset/:por/:borrowerId', component: RegisterAssetComponent },
   { path: 'relEmp/:assetId/:employer/:status', component: ReleaseEmpComponent }
 ];
 

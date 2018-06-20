@@ -14,10 +14,11 @@ import { ReleaseEmpComponent } from './BGC/component/releaseEmp.component';
 import { WebsocketService } from './common/sharedservices/websocket.services';
 import { ChatService } from './common/sharedservices/connect.ws.service';
 import { AddParticipantComponent } from './BGC/component/regParticipant.component';
+import { RegisterAssetComponent } from './BGC/component/regAsset.component';
 
 @NgModule({
   imports:      [ BrowserModule,FormsModule,HttpModule,AppRoutingModule],
-  declarations: [ ReleaseEmpComponent,AppComponent,AddParticipantComponent,BgcComponent,DashboardComponent,TransactionHistoryComponent,WelcomeComponent],
+  declarations: [ ReleaseEmpComponent,RegisterAssetComponent,AppComponent,AddParticipantComponent,BgcComponent,DashboardComponent,TransactionHistoryComponent,WelcomeComponent],
   bootstrap:    [ AppComponent ],
   providers:[CommonService,WebsocketService, ChatService ]
 })

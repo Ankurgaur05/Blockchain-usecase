@@ -12,7 +12,7 @@ import { ChatService } from '../../common/sharedservices/connect.ws.service';
 
 export class DashboardComponent implements OnInit{
     
-    assetDetail =new Asset("", "", "", "", "");
+    assetDetail =new Asset("", "", "", "", "","");
     assetDetails: any [];
   // loan:any;
     
@@ -21,10 +21,8 @@ export class DashboardComponent implements OnInit{
     constructor( private _cs: CommonService,private chatService: ChatService) {
         chatService.messages.subscribe(msg => {			
           console.log(msg);
-          this.ngOnInit();
+        //  this.ngOnInit();
           
-          //this.assetDetail.applId="123";
-          //this.assetDetails.push(this.assetDetails);
         });
       }
     

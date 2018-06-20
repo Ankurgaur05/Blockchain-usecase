@@ -1,6 +1,6 @@
 //
 import { Component } from '@angular/core';
-import { Employee } from '../model/emp.model';
+import { Participant } from '../model/emp.model';
 //import { CommonService } from '../../common/sharedservices/common.services';
 import { Observable } from 'rxjs/Rx';
 import { CommonService } from '../../common/sharedservices/common.services';
@@ -10,40 +10,61 @@ import { CommonService } from '../../common/sharedservices/common.services';
     templateUrl: './regParticipant.componentview.html'
 })
 
-export class AddParticipantComponent  {
+export class AddParticipantComponent {
     resp: string;
     response: any;
-    emp = new Employee("", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+    fcn:string;
+  
+    prt = new Participant("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
 
     constructor(
         private _cs: CommonService
-    ) {
+    ) {}
 
-    }
- 
-    addCustomer() {
-        this.resp='A';
-        this._cs.addCustomer(this.emp)
+    regParticipant() {    
+        let args: string[] = [];
+        if(this.prt.por=='LNDR'){
+            this.fcn='registerLender';
+            args.push(this.prt.uid);args.push(this.prt.fName+' '+this.prt.lName);
+            args.push(this.prt.dob);args.push(this.prt.maritialStatus);
+            args.push(this.prt.accountNumber);args.push(this.prt.accountBal);
+            args.push(this.prt.zipCode);args.push(this.prt.addrLine);
+            args.push(this.prt.city);args.push(this.prt.province);
+            args.push(this.prt.phone);args.push(this.prt.countryCode);
+        }
+        else{
+            this.fcn='registerBorrower';
+            args.push(this.prt.uid);args.push(this.prt.fName+' '+this.prt.lName);
+            args.push(this.prt.dob);args.push(this.prt.maritialStatus);
+            args.push(this.prt.countryCode);args.push(this.prt.zipCode);
+            args.push(this.prt.addrLine);
+            args.push(this.prt.city);args.push(this.prt.province);
+            args.push(this.prt.phone);
+        }
+        this._cs.addParticipant(this.fcn,args)
             .subscribe(
             results => {
                 this.response = results;
                 console.log(this.response);
-                this.resp='D';
+                if(this.response.status=200){
+                    console.log("OKKKKKKKKKKKKKKKKKKKKKKKKKKk");
+                    alert (this.prt.uid +' registered successfully');
+                }
             }
             )
     }
 
-    submitAppl(){
-        this.resp='AP';
-        this._cs.submitApplication(this.emp)
-        .subscribe(
-        results => {
-            this.response = results;
-            console.log(this.response);
-            this.resp='D';
+    submitAppl() {
+        this.resp = 'AP';
+        this._cs.submitApplication(this.prt)
+            .subscribe(
+            results => {
+                this.response = results;
+                console.log(this.response);
+                this.resp = 'D';
 
-        }
-        )
+            }
+            )
 
     }
 }

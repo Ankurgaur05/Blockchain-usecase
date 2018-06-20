@@ -1,6 +1,20 @@
-export class Employee {
-    constructor(public amount: String, public fname: String, public lname: String, public liability: String, public employer: String, public adhaar: String,
-        public gender: String, public email: String, public dob: String, public phone: String, public zipCode: String, public income: String, public address: String, public BIC: String, public currency: String) {
+export class Participant {
+    constructor(public accountBal: string,
+        public fName: string, 
+        public accountNumber: string, 
+        public lName: string,
+        public por: string,
+        public uid: string,
+        public addrLine: string,
+        public gender: string,
+        public email: string,
+        public dob: string,
+        public phone: string,
+        public zipCode: string,
+        public maritialStatus: string,
+        public city: string,
+        public countryCode: string,
+        public province: string) {
 
     }
 }

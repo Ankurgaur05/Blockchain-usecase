@@ -2,21 +2,20 @@
 <hr> &nbsp;&nbsp;&nbsp;&nbsp;*All fields are mandatory(Please mind validations)
 <br>
 <br>
-
 <div class="mdl-grid ">
-    <div class="mdl-cell mdl-cell--1-col"></div>
-    <div class="mdl-cell mdl-cell--3-col">
-       Purpose of relationship:
-      </div>
+  <div class="mdl-cell mdl-cell--1-col"></div>
+  <div class="mdl-cell mdl-cell--3-col">
+    Purpose of relationship:
+  </div>
   <div class="mdl-cell mdl-cell--2-col">
     <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-      <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="BRWR" checked>
+      <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="BRWR" checked [(ngModel)]="prt.por">
       <span class="mdl-radio__label">Borrower</span>
     </label>
   </div>
   <div class="mdl-cell mdl-cell--3-col">
     <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-      <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="LNDR">
+      <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="LNDR" [(ngModel)]="prt.por">
       <span class="mdl-radio__label">Lender</span>
     </label>
   </div>
@@ -26,29 +25,34 @@
   <div class="mdl-cell mdl-cell--1-col"></div>
   <div class="mdl-cell mdl-cell--3-col">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="text" id="fName">
+      <input class="mdl-textfield__input" type="text" id="fName" [(ngModel)]="prt.fName">
       <label class="mdl-textfield__label" for="fName">First name</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input id="uid" type="text" class="mdl-textfield__input" [(ngModel)]="emp.dob">
+      <input id="uid" type="text" class="mdl-textfield__input" [(ngModel)]="prt.uid">
       <label class="mdl-textfield__label" for="uid">*Unique Identification</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield">
-      <textarea class="mdl-textfield__input" type="text" rows="1" id="addr"></textarea>
+      <textarea class="mdl-textfield__input" type="text" rows="1" id="addr" [(ngModel)]="prt.addrLine"></textarea>
       <label class="mdl-textfield__label" for="addr">Address lines...</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="text" id="pc">
+      <input class="mdl-textfield__input" type="text" id="pc" [(ngModel)]="prt.zip">
       <label class="mdl-textfield__label" for="pc">Postal code</label>
+    </div>
+    <div *ngIf="prt.por=='LNDR'" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="aNum" [(ngModel)]="prt.accountNumber">
+      <label class="mdl-textfield__label" for="aNum">Accountn number</label>
+      <span class="mdl-textfield__error">Digits only</span>
     </div>
   </div>
   <div class="mdl-cell mdl-cell--3-col">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="text" id="lName">
+      <input class="mdl-textfield__input" type="text" id="lName" [(ngModel)]="prt.lName">
       <label class="mdl-textfield__label" for="lName">Last name</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="text" id="ms">
+      <input class="mdl-textfield__input" type="text" id="ms" [(ngModel)]="prt.maritialStatus">
       <label class="mdl-textfield__label" for="ms">Maritial status</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -56,28 +60,42 @@
       <label class="mdl-textfield__label" for="city">City</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="text" id="cc">
+      <input class="mdl-textfield__input" type="text" id="cc" [(ngModel)]="prt.countryCode">
       <label class="mdl-textfield__label" for="cc">Country code</label>
+    </div>
+    <div *ngIf="prt.por=='LNDR'" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" type="text" id="aBal" [(ngModel)]="prt.accountBal">
+      <label class="mdl-textfield__label" for="aBal">Accountn Balance</label>
+      <span class="mdl-textfield__error">Digits only</span>
     </div>
   </div>
   <div class="mdl-cell mdl-cell--3-col--1-offset">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input id="dob" type="text" class="mdl-textfield__input" [(ngModel)]="emp.dob">
+      <input id="dob" type="text" class="mdl-textfield__input" [(ngModel)]="prt.dob">
       <label class="mdl-textfield__label" for="dob">*Date of Birth(dd-mm-yyyy)</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="text" id="em">
+      <input class="mdl-textfield__input" type="text" id="em" [(ngModel)]="prt.email">
       <label class="mdl-textfield__label" for="em">Email</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="text" id="pr">
+      <input class="mdl-textfield__input" type="text" id="pr" [(ngModel)]="prt.province">
       <label class="mdl-textfield__label" for="pr">Province</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="phone">
+      <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="phone" [(ngModel)]="prt.phone">
       <label class="mdl-textfield__label" for="phone">Phone</label>
       <span class="mdl-textfield__error">Digits only</span>
     </div>
+  </div>
+
+
+</div>
+<div class="mdl-grid ">
+  <div class="mdl-cell mdl-cell--4-col">
+    <button align="left" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="regParticipant()">
+      Submit
+    </button>
   </div>
 
 </div>
