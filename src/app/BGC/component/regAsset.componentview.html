@@ -48,9 +48,14 @@
   </div>
 </div>
 <div class="mdl-grid ">
-  <div class="mdl-cell mdl-cell--4-col">
-    <button align="left" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+  <div class="mdl-cell mdl-cell--8-col">
+      <div *ngIf="this.status==200">Application/Proposal Id generated : <b>{{key}}</b><br><br>
+          <button  align="left" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" routerLink="/welcome/">
+              Exit
+            </button> 
+      </div><br>
+    <button *ngIf="this.status!=200" align="left" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="addAsset()">
       Submit
-    </button>
+    </button> 
   </div>
 </div>

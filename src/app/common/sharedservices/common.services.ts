@@ -18,11 +18,11 @@ export class CommonService {
     private empTransactUrl = "http://52.66.147.141:3000/api/org.bgc.base.TransferEmployee";
     private handleAppUrl = "http://52.66.147.141:3000/api/org.loan.base.HandleAppplication";
     private getAllLoanUrl = "http://52.66.147.141:3000/api/org.loan.base.LoanAppl";
-    private addAseetUrl = "http://localhost:4000/channels/defaultchannel/chaincodes/";
+    private addAseetUrl = "http://localhost:4000/channels/mychannel/chaincodes/";
     private chaincodeName = "pnp_go1";
     private orgName = 'org1';
     private peerName = "org1-peer1";
-    private authorization = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Mjk1MzI2MDYsInVzZXJuYW1lIjoidmlzaGFsIiwib3JnTmFtZSI6Ik9yZzEiLCJpYXQiOjE1Mjk0OTY2MDZ9.BqRylwb0xpnGulds3zsfhug6EaNCy5n2I-c7MVpvAlI";
+    private authorization = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Mjk4NTA0MTEsInVzZXJuYW1lIjoidmlzaGFsIiwib3JnTmFtZSI6Ik9yZzEiLCJpYXQiOjE1Mjk4MTQ0MTF9.b3LJHTW_Sz69oSDxC62cgB2mzdf7iwRscHf3c7HUKqc";
 
 
     constructor(private _http: Http) {
@@ -83,6 +83,19 @@ export class CommonService {
 
     }
 
+    search(fcn, args) {
+        var headers = new Headers({ 'Content-Type': 'application/json' });
+        headers.append('Authorization', this.authorization);
+        const options = new RequestOptions({
+            headers: headers
+        });
+     console.log(this.addAseetUrl + this.chaincodeName+'?peer=' + this.peerName +'&fcn='+fcn +'&args='+JSON.stringify(args));
+        console.log('&args='+JSON.stringify(args));
+        return this._http.get(this.addAseetUrl + this.chaincodeName+'?peer=' + this.peerName +'&fcn='+fcn +'&args='+JSON.stringify(args),  options)
+            .map((response: Response) => response)
+            .catch(this.handleError);
+
+    }
     addParticipant(fcn, args) {
         var headers = new Headers({ 'Content-Type': 'application/json' });
         headers.append('Authorization', this.authorization);
@@ -105,6 +118,7 @@ export class CommonService {
             .catch(this.handleError);
 
     }
+
     submitApplication(loanApp) {
         const options = new RequestOptions({
 
@@ -211,7 +225,8 @@ export class CommonService {
         // We'd also dig deeper into the error to get a better message
         let errMsg = (error.message) ? error.message :
             error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-        console.error(errMsg); // log to console instead
+            console.error("!!!!!!");
+            console.error(errMsg); // log to console instead
         this.errorLog = errMsg;
         return Observable.throw(errMsg);
     }

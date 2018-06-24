@@ -2,14 +2,14 @@
 export class Asset {
     //declaration
     constructor(
-        public assetId: String,
-        public participantId: String, 
-        public loanAmount: String, 
-        public commitAmount: String, 
-        public remAMount: String, 
-        public loanCurrency: String, 
-        public intRate: String, 
-        public assetStatus: String
+        public assetId: string,
+        public participantId: string, 
+        public loanAmount: string, 
+        public commitAmount: string, 
+        public remAMount: string, 
+        public loanCurrency: string, 
+        public intRate: string, 
+        public assetStatus: string
     ) {
 
 

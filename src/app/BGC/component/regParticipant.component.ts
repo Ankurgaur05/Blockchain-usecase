@@ -1,7 +1,6 @@
 //
 import { Component } from '@angular/core';
 import { Participant } from '../model/emp.model';
-//import { CommonService } from '../../common/sharedservices/common.services';
 import { Observable } from 'rxjs/Rx';
 import { CommonService } from '../../common/sharedservices/common.services';
 
@@ -14,6 +13,7 @@ export class AddParticipantComponent {
     resp: string;
     response: any;
     fcn:string;
+    status:string;
   
     prt = new Participant("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
 
@@ -46,25 +46,13 @@ export class AddParticipantComponent {
             results => {
                 this.response = results;
                 console.log(this.response);
-                if(this.response.status=200){
-                    console.log("OKKKKKKKKKKKKKKKKKKKKKKKKKKk");
+                if(this.response.status==200){
+                    this.status=this.response.status;
                     alert (this.prt.uid +' registered successfully');
+                }else{
+                    alert (this.prt.uid +' : error occurred while registering'); 
                 }
             }
             )
-    }
-
-    submitAppl() {
-        this.resp = 'AP';
-        this._cs.submitApplication(this.prt)
-            .subscribe(
-            results => {
-                this.response = results;
-                console.log(this.response);
-                this.resp = 'D';
-
-            }
-            )
-
     }
 }

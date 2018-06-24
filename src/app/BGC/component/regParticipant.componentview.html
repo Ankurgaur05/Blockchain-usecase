@@ -22,7 +22,7 @@
 </div>
 <div class="mdl-grid ">
 
-  <div class="mdl-cell mdl-cell--1-col"></div>
+  <div class="mdl-cell mdl-cell--1-col" ng-readonly="all"></div>
   <div class="mdl-cell mdl-cell--3-col">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="text" id="fName" [(ngModel)]="prt.fName">
@@ -93,9 +93,14 @@
 </div>
 <div class="mdl-grid ">
   <div class="mdl-cell mdl-cell--4-col">
-    <button align="left" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="regParticipant()">
+    <button *ngIf="this.status!=200" align="left" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="regParticipant()">
       Submit
     </button>
+    <button *ngIf="this.status==200" align="left" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" routerLink="/regAsset/{{this.prt.por}}/{{this.prt.uid}}">
+      <div *ngIf="this.prt.por=='BRWR'">Apply for Loan</div>
+      <div *ngIf="this.prt.por=='LNDR'">Submit Lending Proposal</div>
+    </button>
+
   </div>
 
 </div>

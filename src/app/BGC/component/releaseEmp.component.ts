@@ -1,6 +1,5 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../model/emp.model';
 import { Observable } from 'rxjs/Rx';
 import { Location } from '@angular/common';
 import { CommonService } from '../../common/sharedservices/common.services';
@@ -17,7 +16,7 @@ export class ReleaseEmpComponent implements OnInit {
 
     resp: string;
     response: any;
-    emp = new Employee("", "", "", "", "", "", "", "", "", "", "", "", "","","");
+  
 
 
     constructor(
@@ -28,12 +27,11 @@ export class ReleaseEmpComponent implements OnInit {
 
 
     ngOnInit() {
-        this.emp.adhaar = this.route.snapshot.paramMap.get('assetId');
         this.existingEmployer = this.route.snapshot.paramMap.get('employer');
         this.existingEmployStatus = this.route.snapshot.paramMap.get('status');
 
     }
-
+/*
     procEmployee() {
         if (this.existingEmployer == this.emp.adhaar && this.existingEmployStatus == 'RELEASED' || this.existingEmployStatus == "") {
             this.resp = "Employee is already " + this.existingEmployStatus + " at/from " + this.existingEmployer;
@@ -51,5 +49,5 @@ export class ReleaseEmpComponent implements OnInit {
 
                 )
         }
-    }
+    }*/
 }
