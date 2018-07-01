@@ -22,7 +22,7 @@ export class CommonService {
     private chaincodeName = "pnp_go1";
     private orgName = 'org1';
     private peerName = "org1-peer1";
-    private authorization = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Mjk4NTA0MTEsInVzZXJuYW1lIjoidmlzaGFsIiwib3JnTmFtZSI6Ik9yZzEiLCJpYXQiOjE1Mjk4MTQ0MTF9.b3LJHTW_Sz69oSDxC62cgB2mzdf7iwRscHf3c7HUKqc";
+    private authorization = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzA0NzYyMzIsInVzZXJuYW1lIjoidmlzaGFsIiwib3JnTmFtZSI6Ik9yZzEiLCJpYXQiOjE1MzA0NDAyMzJ9.s0YXLkYuFajo_TVEtO8J7pPJNJnXEFjHmlH7meIHBwE";
 
 
     constructor(private _http: Http) {
