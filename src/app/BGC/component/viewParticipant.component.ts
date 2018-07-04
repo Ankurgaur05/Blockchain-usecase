@@ -88,7 +88,7 @@ export class ViewComponent implements OnInit {
         let args: string[] = [];
         var jsonReq={};
         var jsonCond={};
-        if(action=='match'){
+       /* if(action=='match'){
         jsonCond.$gte=this._bodyAsset.loanAmount;
         var jsonCommit={};
         jsonCommit.commitAmount=jsonCond;
@@ -105,7 +105,7 @@ export class ViewComponent implements OnInit {
             }
             jsonCommit.docType="CONTRACT";
             jsonReq.selector=jsonCommit;
-        }
+        }*/
         console.log(jsonReq);
         args.push(JSON.stringify(jsonReq));
         var fcn = "getQueryResult";
