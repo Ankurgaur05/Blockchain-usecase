@@ -2,9 +2,13 @@
   "name": "my-app",
   "version": "0.0.0",
   "license": "MIT",
+  "engines": {
+  "node": "8.x",
+  "npm": "5.x"
+},
   "scripts": {
-    "ng": "./node_modules/@angular/cli/bin/ng",
-    "start": "./node_modules/@angular/cli/bin/ng serve",
+    "ng": "ng",
+    "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
