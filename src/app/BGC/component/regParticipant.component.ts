@@ -13,7 +13,7 @@ export class AddParticipantComponent {
     resp: string;
     response: any;
     fcn:string;
-    status:string;
+    status:number;
   
     prt = new Participant("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
 
@@ -28,7 +28,7 @@ export class AddParticipantComponent {
             args.push(this.prt.uid);args.push(this.prt.fName+' '+this.prt.lName);
             args.push(this.prt.dob);args.push(this.prt.maritialStatus);
             args.push(this.prt.accountNumber);args.push(this.prt.accountBal);
-            args.push(this.prt.zipCode);args.push(this.prt.addrLine);
+            args.push(this.prt.zip);args.push(this.prt.addrLine);
             args.push(this.prt.city);args.push(this.prt.province);
             args.push(this.prt.phone);args.push(this.prt.countryCode);
         }
@@ -36,7 +36,7 @@ export class AddParticipantComponent {
             this.fcn='registerBorrower';
             args.push(this.prt.uid);args.push(this.prt.fName+' '+this.prt.lName);
             args.push(this.prt.dob);args.push(this.prt.maritialStatus);
-            args.push(this.prt.countryCode);args.push(this.prt.zipCode);
+            args.push(this.prt.countryCode);args.push(this.prt.zip);
             args.push(this.prt.addrLine);
             args.push(this.prt.city);args.push(this.prt.province);
             args.push(this.prt.phone);

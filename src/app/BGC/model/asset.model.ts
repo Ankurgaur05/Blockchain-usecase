@@ -9,7 +9,8 @@ export class Asset {
         public remAMount: string, 
         public loanCurrency: string, 
         public intRate: string, 
-        public assetStatus: string
+        public assetStatus: string,
+        public zip: string
     ) {
 
 

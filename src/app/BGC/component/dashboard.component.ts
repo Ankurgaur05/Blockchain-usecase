@@ -12,7 +12,7 @@ import { ChatService } from '../../common/sharedservices/connect.ws.service';
 
 export class DashboardComponent implements OnInit{
     
-    assetDetail =new Asset("", "", "", "", "","","","");
+    assetDetail =new Asset("", "", "", "", "","","","","");
     assetDetails: any [];
   // loan:any;
     

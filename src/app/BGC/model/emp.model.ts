@@ -10,7 +10,7 @@ export class Participant {
         public email: string,
         public dob: string,
         public phone: string,
-        public zipCode: string,
+        public zip: string,
         public maritialStatus: string,
         public city: string,
         public countryCode: string,

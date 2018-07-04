@@ -14,9 +14,9 @@ export class RegisterAssetComponent implements OnInit {
     uid: string;
     key: string;
     assetType: string;
-    status:string;
+    status:number;
     response: any;
-    asset = new Asset("", "", "", "", "", "", "", "");
+    asset = new Asset("", "", "", "", "", "", "", "","");
 
     constructor(
         private route: ActivatedRoute,
