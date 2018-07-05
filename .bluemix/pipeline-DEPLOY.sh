@@ -64,9 +64,11 @@ function start_cf_app {
     popd
 }
 
+echo installinng NOdejs
 
 install_nodejs
 install_jq
+echo installinngAngular
 install_angularcli
 ../cf push "${CF_APP}" -b https://github.com/cloudfoundry/nodejs-buildpack
 
