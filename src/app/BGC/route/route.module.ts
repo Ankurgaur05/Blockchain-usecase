@@ -7,6 +7,7 @@ import { AddParticipantComponent } from '../component/regParticipant.component';
 import { RegisterAssetComponent } from '../component/regAsset.component';
 import { SearchComponent } from '../component/search.component';
 import { ViewComponent } from '../component/viewParticipant.component';
+import { LoginComponent } from '../component/login.component';
 
 
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'addParticipant', component: AddParticipantComponent },
   { path: 'regAsset/:por/:borrowerId', component: RegisterAssetComponent },
   { path: 'search', component: SearchComponent }
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({

@@ -3,6 +3,8 @@ import { Location } from '@angular/common';
 import { CommonService } from '../../common/sharedservices/common.services';
 import { ActivatedRoute } from '@angular/router';
 import { Asset } from '../model/asset.model';
+import {  Router } from '@angular/router';
+import { AppGlobals } from './app.global';
 
 @Component({
     selector: 'regasset-component',
@@ -15,12 +17,15 @@ export class RegisterAssetComponent implements OnInit {
     key: string;
     assetType: string;
     status:number;
+    token:string
     response: any;
     asset = new Asset("", "", "", "", "", "", "", "","");
 
     constructor(
         private route: ActivatedRoute,
+        private router: Router,
         private _cs: CommonService,
+        private ag: AppGlobals,
         private location: Location
     ) {
 
@@ -28,6 +33,10 @@ export class RegisterAssetComponent implements OnInit {
     ngOnInit() {
         this.uid = this.route.snapshot.paramMap.get('borrowerId');
         this.por = this.route.snapshot.paramMap.get('por');
+        if (!this.ag.getToken()) {
+            this.router.navigate(['/login']);
+        }
+
         if (this.por == 'LNDR') {
             this.assetType = 'Lending proposal';
         } else {
@@ -49,7 +58,7 @@ export class RegisterAssetComponent implements OnInit {
             args.push(this.asset.commitAmount); args.push(this.asset.remAMount);
             args.push(this.asset.intRate); args.push(this.asset.loanCurrency);
         }
-        this._cs.addParticipant(fcn, args)
+        this._cs.addParticipant(fcn, args,this.ag.getToken())
             .subscribe(
                 results => {
                     this.response = results;

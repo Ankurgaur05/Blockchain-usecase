@@ -15,11 +15,13 @@ import { AddParticipantComponent } from './BGC/component/regParticipant.componen
 import { RegisterAssetComponent } from './BGC/component/regAsset.component';
 import { SearchComponent } from './BGC/component/search.component';
 import { ViewComponent } from './BGC/component/viewParticipant.component';
+import { AppGlobals } from './BGC/component/app.global';
+import { LoginComponent } from './BGC/component/login.component';
 
 @NgModule({
   imports:      [ BrowserModule,FormsModule,HttpModule,AppRoutingModule],
-  declarations: [ SearchComponent,RegisterAssetComponent,AppComponent,AddParticipantComponent,ViewComponent,DashboardComponent,TransactionHistoryComponent,WelcomeComponent],
+  declarations: [ LoginComponent,SearchComponent,RegisterAssetComponent,AppComponent,AddParticipantComponent,ViewComponent,DashboardComponent,TransactionHistoryComponent,WelcomeComponent],
   bootstrap:    [ AppComponent ],
-  providers:[CommonService,WebsocketService, ChatService ]
+  providers:[CommonService,WebsocketService, ChatService,AppGlobals ]
 })
 export class AppModule { }
