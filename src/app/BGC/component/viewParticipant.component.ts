@@ -93,26 +93,59 @@ export class ViewComponent implements OnInit {
     }
     executeQuery(action) {
         let args: string[] = [];
-        var jsonReq = {};
-        var jsonCond = {};
-        /*  if(action=='match'){
-         jsonCond.$gte=this._bodyAsset.loanAmount;
-          var jsonCommit={};
-          jsonCommit.commitAmount=jsonCond;
-          jsonCommit.docType="LEPRPL";
-          jsonReq.selector=jsonCommit;
+        var jsonReq={};
+        var jsonReqQuer1 = {
+            selector:{
+               docType:"" ,
+               commitAmount:{
+                $gte:"",
+                
+               }
+            }
+        };
+        var jsonReqQuer2 = {
+            selector:{
+               docType:"" ,
+               
+               borrowerId:{
+                $eq:""                
+               }
+            }
+        };
+        var jsonReqQuer3 = {
+            selector:{
+               docType:"" ,
+               
+               lenderId:{
+                $eq:""                
+               }
+            }
+        };
+       
+         if(action=='match'){
+         jsonReqQuer1.selector.commitAmount.$gte=this._bodyAsset.loanAmount;
+         // var jsonCommit={};
+          //jsonReq.selector.commitAmount=jsonCond;
+        //  jsonReqQuer1.selector.commitAmount.$gte=this._bodyAsset.loanAmount;
+          //jsonReq.selector=jsonCommit;
+          jsonReqQuer1.selector.docType="LEPRPL";
+          jsonReq=jsonReqQuer1;
           }else{
-              jsonCond.$eq=this.uid;
-              var jsonCommit={};
+              //jsonCond.$eq=this.uid;
+             // var jsonCommit={};
               if(this.por=="BRWR"){
-              jsonCommit.borrowerId=jsonCond;
+                jsonReqQuer2.selector.borrowerId.$eq=this.uid;
+                jsonReqQuer2.selector.docType="CONTRACT";
+                jsonReq=jsonReqQuer2;
           }
               else{
-                  jsonCommit.lenderId=jsonCond;
+                jsonReqQuer3.selector.lenderId.$eq=this.uid;
+                jsonReqQuer3.selector.docType="CONTRACT";
+                jsonReq=jsonReqQuer3;
               }
-              jsonCommit.docType="CONTRACT";
-              jsonReq.selector=jsonCommit;
-          }*/
+              
+             // jsonReq.selector=jsonCommit;
+          }
         console.log(jsonReq);
         args.push(JSON.stringify(jsonReq));
         var fcn = "getQueryResult";
@@ -124,7 +157,7 @@ export class ViewComponent implements OnInit {
                     if (this.response.status == 200) {
                         this.status = this.response.status;
                         this._bodyProposal = JSON.parse(this.response._body);
-                        console.log(this._bodyProposal[0].Record.commitAmount);
+                       // console.log(this._bodyProposal[0].Record.commitAmount);
                         if (action == "match") {
                             this.enableMatchSec = true;
                         } else {
@@ -164,6 +197,7 @@ export class ViewComponent implements OnInit {
                         this.key = _body.key;
                         alert('Submission was successful:' + _body.key);
                         this.enableMatchSec = false;
+                        this.executeQuery('d');
                         this.enableContractView = true;
                     } else {
                         alert('Error occurred while registering');

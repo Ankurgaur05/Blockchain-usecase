@@ -4,7 +4,6 @@ import {FormsModule} from  '@angular/forms';
 import { AppComponent }  from './app.component';
 import { CommonService } from './common/sharedservices/common.services';
 import { HttpModule } from '@angular/http';
-import { DashboardComponent } from './BGC/component/dashboard.component';
 import { AppRoutingModule } from './BGC/route/route.module';
 import { TransactionHistoryComponent } from './BGC/component/txnhistory.component';
 import { WelcomeComponent } from './BGC/component/welcome.component';
@@ -20,7 +19,7 @@ import { LoginComponent } from './BGC/component/login.component';
 
 @NgModule({
   imports:      [ BrowserModule,FormsModule,HttpModule,AppRoutingModule],
-  declarations: [ LoginComponent,SearchComponent,RegisterAssetComponent,AppComponent,AddParticipantComponent,ViewComponent,DashboardComponent,TransactionHistoryComponent,WelcomeComponent],
+  declarations: [ LoginComponent,SearchComponent,RegisterAssetComponent,AppComponent,AddParticipantComponent,ViewComponent,TransactionHistoryComponent,WelcomeComponent],
   bootstrap:    [ AppComponent ],
   providers:[CommonService,WebsocketService, ChatService,AppGlobals ]
 })

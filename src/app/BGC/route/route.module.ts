@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from '../component/dashboard.component';
+
 import { TransactionHistoryComponent } from '../component/txnhistory.component';
 import { WelcomeComponent } from '../component/welcome.component';
 import { AddParticipantComponent } from '../component/regParticipant.component';
@@ -14,12 +14,11 @@ import { LoginComponent } from '../component/login.component';
 const routes: Routes = [
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: 'welcome', component: WelcomeComponent },
-  { path: 'bankview', component: DashboardComponent },
   { path: 'view/:uid', component: ViewComponent },
   { path: 'searchHistory/:assetId', component: TransactionHistoryComponent },
   { path: 'addParticipant', component: AddParticipantComponent },
   { path: 'regAsset/:por/:borrowerId', component: RegisterAssetComponent },
-  { path: 'search', component: SearchComponent }
+  { path: 'search', component: SearchComponent },
   { path: 'login', component: LoginComponent }
 ];
 

@@ -50,7 +50,7 @@ export class AddParticipantComponent implements OnInit {
             args.push(this.prt.city);args.push(this.prt.province);
             args.push(this.prt.phone);
         }
-        this._cs.addParticipant(this.fcn,args)
+        this._cs.addParticipant(this.fcn,args,this.ag.getToken())
             .subscribe(
             results => {
                 this.response = results;
